@@ -1,0 +1,59 @@
+.health-app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tab-navigation {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.tab-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  background-color: #eef2ff;
+  padding: 0.5rem;
+  border-radius: 0.9rem;
+}
+
+.tab-button {
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: #4338ca;
+  background: transparent;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .health-app {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .tab-nav {
+    grid-template-columns: 1fr;
+  }
+}
