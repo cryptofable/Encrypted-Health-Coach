@@ -1,59 +1,91 @@
 .health-app {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 3rem 2rem 4rem;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .tab-navigation {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 0.75rem;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-radius: 1.25rem;
+  padding: 0.85rem;
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.08);
+  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .tab-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.75rem;
-  background-color: #eef2ff;
-  padding: 0.5rem;
-  border-radius: 0.9rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
 }
 
 .tab-button {
-  padding: 0.95rem 1rem;
-  border: none;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
+  padding: 1rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  color: #4338ca;
+  color: #667eea;
   background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  position: relative;
 }
 
-.tab-button.active {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: white;
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tab-button:hover {
-  transform: translateY(-1px);
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.tab-button:hover::after {
+  width: 100%;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
+}
+
+.tab-button.active::after {
+  display: none;
+}
+
+.tab-button.inactive {
+  color: #9ca3af;
 }
 
 @media (max-width: 768px) {
   .health-app {
-    padding: 1.5rem 1rem 3rem;
+    padding: 2rem 1.5rem 3rem;
   }
 
   .tab-nav {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .tab-button {
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
   }
 }
