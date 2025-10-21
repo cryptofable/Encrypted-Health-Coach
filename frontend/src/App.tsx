@@ -13,7 +13,7 @@ function App() {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider locale="en">
-          <div style={{ minHeight: '100vh', backgroundColor: '#f4f6fb' }}>
+          <div style={{ minHeight: '100vh', backgroundColor: '#f8f7ff' }}>
             <HealthApp />
           </div>
         </RainbowKitProvider>
