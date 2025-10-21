@@ -133,12 +133,28 @@ export function HealthAnalysis() {
       setIsDecrypting(true);
       const keypair = instance.generateKeypair();
 
-      const handleContractPairs = Array.from(encryptedData)
-        .slice(0, 6)
-        .map(handle => ({
-          handle,
-          contractAddress: CONTRACT_ADDRESS,
-        }));
+      const [
+        heightHandle,
+        weightHandle,
+        ageHandle,
+        genderHandle,
+        systolicHandle,
+        diastolicHandle,
+      ] = encryptedData;
+
+      const ciphertextHandles = [
+        heightHandle,
+        weightHandle,
+        ageHandle,
+        genderHandle,
+        systolicHandle,
+        diastolicHandle,
+      ];
+
+      const handleContractPairs = ciphertextHandles.map(handle => ({
+        handle,
+        contractAddress: CONTRACT_ADDRESS,
+      }));
 
       const startTimestamp = Math.floor(Date.now() / 1000).toString();
       const durationDays = '7';
