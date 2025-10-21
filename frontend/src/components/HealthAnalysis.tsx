@@ -175,7 +175,28 @@ export function HealthAnalysis() {
         durationDays
       );
 
-      const [height, weight, age, gender, systolic, diastolic] = result.values.map((value: bigint) => Number(value));
+      if (!result || typeof result !== 'object') {
+        throw new Error('Unexpected decryption response format.');
+      }
+
+      const decryptedValues = handleContractPairs.map(({ handle }) => {
+        const rawValue = (result as Record<string, unknown>)[handle];
+        if (rawValue === undefined || rawValue === null) {
+          throw new Error('Missing decrypted value for a ciphertext handle.');
+        }
+        if (typeof rawValue === 'bigint') {
+          return rawValue;
+        }
+        if (typeof rawValue === 'number') {
+          return BigInt(rawValue);
+        }
+        if (typeof rawValue === 'string') {
+          return BigInt(rawValue);
+        }
+        throw new Error('Unsupported decrypted value type.');
+      });
+
+      const [height, weight, age, gender, systolic, diastolic] = decryptedValues.map(value => Number(value));
 
       setMetrics({
         height,
