@@ -1,5 +1,5 @@
 // EncryptedHealthCoach contract deployed on Sepolia
-export const CONTRACT_ADDRESS = '0x3228292F08dc1501afC977bc7Ce3F895C22063d2';
+export const CONTRACT_ADDRESS = '0x0FF524E454EFD37fCd779a010D519C922503Affc';
 
 // Generated ABI from deployments/sepolia/EncryptedHealthCoach.json
 export const CONTRACT_ABI = [

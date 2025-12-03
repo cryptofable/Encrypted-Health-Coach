@@ -2,11 +2,11 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title Encrypted Health Coach
 /// @notice Stores encrypted personal health metrics using Zama FHE
-contract EncryptedHealthCoach is SepoliaConfig {
+contract EncryptedHealthCoach is ZamaEthereumConfig {
     struct HealthRecord {
         euint32 heightCm;
         euint32 weightKg;
